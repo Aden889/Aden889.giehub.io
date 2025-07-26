@@ -1,40 +1,226 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>P'Nickkyyyyyyyyyyyyyyyyyyyyyy</title>
+<title>P'Nickkyyyyyyyyyyyyyyyyyyyyyy ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
 <style>
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Mali', cursive; /* หรือเปลี่ยนเป็น 'Kalam', cursive; */
     text-align: center;
-    background-color: #fce4ec;
-    color: #d81b60;
-    padding-top: 50px;
+    background-color: #FFD1DC; /* สีพื้นหลังชมพูอ่อน (หรือเปลี่ยนเป็นสีที่คุณต้องการ) */
+    color: #01579b; /* สีตัวอักษรหลัก (น้ำเงินเข้ม) */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
   }
-  .message {
+
+  /* สไตล์สำหรับการ์ดหน้าปก */
+  .card-cover {
     background-color: #ffffff;
-    margin: 20px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    margin: 20px;
+    padding: 60px 40px; /* เพิ่ม padding ให้ใหญ่ขึ้น */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%; /* ให้ยืดหยุ่นกับขนาดหน้าจอ */
+    cursor: pointer; /* แสดงว่าคลิกได้ */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  img {
+  .card-cover:hover {
+    transform: scale(1.02); /* ขยับเล็กน้อยเมื่อเมาส์ชี้ */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  .card-cover h2 {
+    font-size: 2.2em;
+    color: #e91e63; /* สีชมพูเข้ม */
+    margin-bottom: 20px;
+  }
+  .card-cover p {
+    font-size: 1.4em;
+    color: #880e4f; /* สีชมพูอมม่วง */
+    font-weight: bold;
+  }
+
+  /* สไตล์สำหรับการ์ดเนื้อหาหลัก (เริ่มต้นซ่อนไว้) */
+  .card-content {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInScale 1.5s ease-out forwards; /* แอนิเมชันเมื่อแสดง */
+    display: none; /* ซ่อนไว้ตั้งแต่แรก */
+  }
+  
+  h1 {
+    font-size: 2.8em;
+    margin-bottom: 25px;
+    color: #0288d1; /* ฟ้าสดใส */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  p {
+    font-size: 1.3em;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+  }
+  .card-content img { /* เปลี่ยน .card img เป็น .card-content img */
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 2s;
   }
+  .quote {
+    font-style: italic;
+    color: #26c6da;
+    margin-top: 25px;
+    border-left: 3px solid #26c6da;
+    padding-left: 15px;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 3s;
+  }
+  .signature {
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #039be5;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 3.5s;
+  }
+  .heart {
+    color: #ff4081;
+    font-size: 1.5em;
+    animation: pulse 1.5s infinite;
+  }
+
+  /* ปุ่ม */
+  .forgive-button {
+    background-color: #0288d1;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+    animation-delay: 4s;
+  }
+  .forgive-button:hover {
+    background-color: #039be5;
+    transform: translateY(-3px);
+  }
+  .response-message {
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: #e91e63;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeInScale { /* แอนิเมชันสำหรับการ์ดที่เปิดเผย */
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  @keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* เพิ่ม delay สำหรับแต่ละ p tag */
+  p:nth-of-type(1) { animation-delay: 1s; }
+  p:nth-of-type(2) { animation-delay: 1.5s; }
+  p:nth-of-type(3) { animation-delay: 2.5s; }
+  p:nth-of-type(4) { animation-delay: 3s; }
+
 </style>
 </head>
 <body>
 
-<div class="message">
-  <h1>To.... --..-- ......yuppy</h1>
-  <p>Sorryyyyyyy </p>
-  <p>Onee i leave u I'm strung out</p>
-  <p>But i wish u were right here </p>
-  <p>มาง้อนะนิรู้บ้างหรือป่าว!</p>
+<div class="card-cover" id="cardCover" onclick="openCard()">
+  <h2>คลิกเพื่อเปิดการ์ด...</h2>
+  <p>💌</p>
 </div>
+
+<div class="card-content" id="cardContent">
+  <h1>หัวใจที่กำลังขอโทษ <span class="heart">💙</span></h1>
+  <p>ช่วงเวลาที่เรามีร่วมกันมันพิเศษมากจริงๆ</p>
+  <p>ฉันยังจำวันแรกที่เรา [พูดถึงความทรงจำดีๆ เช่น "เจอกัน", "หัวเราะด้วยกัน", "ไปเที่ยวที่นั่น"] ได้เสมอ</p>
+  
+  <img src="ff.jpg" alt="รูปภาพความทรงจำของเรา"> 
+
+  <p>เธอคือคนสำคัญที่สุดที่เข้ามาเติมเต็มชีวิตฉัน และฉันไม่อยากให้เรื่องเล็กๆ น้อยๆ มาทำลายสิ่งสวยงามของเราเลย</p>
+  <p>ฉันขอโทษที่ทำให้เธอรู้สึกไม่ดี ฉันอยากให้เธอกลับมายิ้มได้เหมือนเดิม</p>
+  <p>หายงอนแล้วคืนนี้โทรหาหนูด้วยนะ :p 🌸</p> <div class="quote">
+    "เธอคือทุกสิ่งทุกอย่างของฉัน"
+  </div>
+  <div class="signature">
+    รักเสมอ,<br>
+    [ชื่อของคุณ]
+  </div>
+
+  <button class="forgive-button" onclick="showResponse()">เธอจะให้อภัยฉันได้ไหม?</button>
+  <div id="responseMessage" class="response-message"></div>
+
+</div>
+
+<script>
+  function openCard() {
+    const cardCover = document.getElementById('cardCover');
+    const cardContent = document.getElementById('cardContent');
+
+    // ทำให้การ์ดหน้าปกค่อยๆ หายไป
+    cardCover.style.opacity = '0';
+    cardCover.style.transform = 'scale(0.8)'; // ย่อขนาดลงเล็กน้อย
+    
+    // หลังจากนั้น 0.5 วินาที (เพื่อให้ animation ของ card-cover ทำงานเสร็จ)
+    setTimeout(() => {
+      cardCover.style.display = 'none'; // ซ่อนหน้าปก
+      cardContent.style.display = 'block'; // แสดงการ์ดเนื้อหาหลัก
+      // cardContent จะมี animation 'fadeInScale' ทำงานเองเพราะ display เปลี่ยนเป็น block
+    }, 500); 
+  }
+
+  function showResponse() {
+    const responseDiv = document.getElementById('responseMessage');
+    responseDiv.innerHTML = "โอ้ยยยย... ขอบคุณนะ! ฉันรักเธอที่สุดเลย! ❤️❤️❤️";
+    responseDiv.style.opacity = 1;
+    
+    // ทำให้ปุ่มหายไปหลังคลิก
+    document.querySelector('.forgive-button').style.display = 'none';
+  }
+
+</script>
 
 </body>
 </html>
